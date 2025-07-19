@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahd Hammad CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+    <!-- React and ReactDOM CDNs -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel Standalone for JSX transformation in browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Main App component for the CV
+        const App = () => {
+          // Shahd Hammad's CV data
+          const cvData = {
+            contact: {
+              email: 'shahadhammad55@gmail.com',
+              phone: '+972-594921606',
+              location: 'Hebron, Palestine',
+            },
+            profile: `A dedicated educator with a strong foundation in teaching the Arabic language at the upper basic level. Proficient in integrating technology into education to enhance learning experiences. Passionate about continuous learning, personal growth, and making meaningful contributions to every team joined. Possesses extensive experience in developing modern teaching strategies and aims to create a stimulating learning environment that fosters a love for the Arabic language and prepares students for future challenges, utilizing modern and innovative teaching methods to develop intellectual and creative abilities.`,
+            skills: [
+              'Effective Communication',
+              'Technology Integration',
+              'Cultural Competence',
+              'Creativity',
+              'Designing Innovative Educational Strategies',
+              'Classroom Management',
+              'Public Speaking',
+              'Empathy and Patience',
+              'Subject Matter Expertise',
+            ],
+            languages: [
+              { name: 'Arabic', level: 'Native' },
+              { name: 'English', level: 'Intermediate' },
+            ],
+            experience: [
+              {
+                title: 'Teacher',
+                company: 'Palestinian Center for Education and Knowledge Exchange',
+                location: 'Hebron',
+                dates: '2025',
+                description: [
+                  'Taught Arabic to non-native speakers using interactive and simplified methods.',
+                  'Prepared study plans that considered listening, speaking, reading, and writing skills.',
+                  'Integrated Palestinian culture, folk songs and events into lessons to enhance linguistic and cultural understanding.',
+                  'Dealt with students of different levels (beginners and learners), and various age groups.',
+                  'Provided individual support to each student according to their level and needs.',
+                  'Utilized visual aids and educational games to motivate students and make learning enjoyable.',
+                ],
+              },
+              {
+                title: 'Teacher',
+                company: 'Al-Ertiqaa Educational Center',
+                location: 'Hebron',
+                dates: '2022-2025',
+                description: [
+                  'Taught core subjects to students across various academic levels.',
+                  'Designed and delivered interactive lessons that catered to individual differences among students.',
+                  'Integrated educational technology tools such as presentations, electronic tests, and educational videos to enhance interaction and comprehension.',
+                  'Provided individual and group tutoring, focusing on academic support and personal motivation.',
+                  'Communicated with students and parents to monitor academic progress and address learning gaps.',
+                  'Contributed to creating a positive learning environment that encouraged critical thinking and initiative.',
+                ],
+              },
+              {
+                title: 'Student Teacher',
+                company: 'Latin Patriarchate School',
+                location: 'Beit Jala',
+                dates: '2021-2024',
+                description: [
+                  'Planned and taught Arabic language lessons.',
+                  'Helped with classroom management and assessed students\' progress.',
+                  'Designed educational activities and participated in extracurricular activities.',
+                  'Utilized various teaching strategies to motivate students and enhance their engagement.',
+                ],
+              },
+              {
+                title: 'Marketing & Sales Representative',
+                company: 'Lahtha Media Production Company',
+                location: 'Hebron',
+                dates: '2022',
+                description: [
+                  'Organized promotional campaigns to increase brand awareness.',
+                  'Collaborated with various teams to ensure consistency in marketing strategies.',
+                ],
+              },
+            ],
+            education: [
+              {
+                degree: 'BA Education (Subject Area Arabic)',
+                university: 'Bethlehem University',
+                location: 'Bethlehem, Palestine',
+                dates: '2020-2024',
+                gpa: '2.96/4.0',
+              },
+              {
+                degree: 'Tawjihi: Scientific Stream',
+                university: 'Al-Aroub Secondary School for Girls',
+                location: 'Hebron, Palestine',
+                dates: '2020',
+              },
+            ],
+            volunteerWork: [
+              {
+                organization: 'Holy Family Children\'s Home',
+                location: 'Bethlehem',
+                dates: '2023-2024',
+              },
+              {
+                organization: 'Holy Land Trust',
+                location: 'Bethlehem',
+                dates: '2021',
+                description: [
+                  'Authored creative stories and pursued photography projects.',
+                  'Participated in initiatives promoting Palestinian women leaders through publications and photography exhibitions.',
+                ],
+              },
+            ],
+            certificates: [
+              { name: 'Intermediate English Certificate', issuer: 'STEP International', year: '2018' },
+              { name: 'Hult Prize Participation Certificate', issuer: 'Hult International Business School', year: '2020' },
+              { name: 'Participation Certificate in Palestinian Universities Debate', issuer: 'Bethlehem University', year: '2025' },
+              { name: 'Certificate in English Journalism', issuer: 'AMIDEAST Hebron', year: '2025' },
+            ],
+            achievements: [
+              { name: 'First Place: Walking Challenge', organization: 'Bethlehem University', year: '2021' },
+            ],
+            references: [
+              { name: 'Dr. Khalil Issa', title: 'Head of Arabic Department', university: 'Bethlehem University', email: 'kissa@bethlehem.edu' },
+              { name: 'Dr. Ziad Bani Shamsa', title: 'Professor of Literature and Criticism', university: 'Bethlehem University', email: 'ziyadb@bethlehem.edu' },
+            ],
+          };
+
+          // Helper component for a section title in the main content area
+          const MainSectionTitle = ({ children }) => (
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-gray-300 rounded-md">
+              {children}
+            </h2>
+          );
+
+          // Helper component for a section title in the sidebar
+          const SidebarSectionTitle = ({ children }) => (
+            <h2 className="text-xl font-bold text-white mb-4 pb-2 border-b-2 border-blue-300 rounded-md">
+              {children}
+            </h2>
+          );
+
+          return (
+            <div className="font-sans bg-gray-100 min-h-screen p-4 sm:p-6 lg:p-8 flex justify-center items-start">
+              <div className="bg-white shadow-lg rounded-xl overflow-hidden w-full max-w-5xl flex flex-col md:flex-row">
+                {/* Left Main Content Area */}
+                <main className="w-full md:w-2/3 p-6 sm:p-8 bg-white rounded-b-xl md:rounded-l-xl md:rounded-br-none">
+                  {/* Header Section */}
+                  <header className="text-center md:text-left mb-8">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-700 mb-2 rounded-md">
+                      SHAHD HAMMAD
+                    </h1>
+                    <p className="text-xl sm:text-2xl text-gray-600 font-semibold rounded-md">Educator</p>
+                  </header>
+
+                  {/* Profile Section */}
+                  <section className="mb-8">
+                    <MainSectionTitle>Profile</MainSectionTitle>
+                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                      {cvData.profile}
+                    </p>
+                  </section>
+
+                  {/* Work Experience Section */}
+                  <section className="mb-8">
+                    <MainSectionTitle>Work Experience</MainSectionTitle>
+                    {cvData.experience.map((job, index) => (
+                      <div key={index} className="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                          {job.title} at {job.company}
+                        </h3>
+                        <p className="text-gray-600 text-sm sm:text-base mb-2">
+                          {job.location} | {job.dates}
+                        </p>
+                        <ul className="list-disc list-inside text-gray-700 text-sm sm:text-base space-y-1">
+                          {job.description.map((desc, i) => (
+                            <li key={i}>{desc}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </section>
+
+                  {/* Education Section */}
+                  <section className="mb-8">
+                    <MainSectionTitle>Education</MainSectionTitle>
+                    {cvData.education.map((edu, index) => (
+                      <div key={index} className="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-gray-600 text-sm sm:text-base mb-1">
+                          {edu.university}, {edu.location}
+                        </p>
+                        <p className="text-gray-600 text-sm sm:text-base">
+                          {edu.dates} {edu.gpa && `| GPA: ${edu.gpa}`}
+                        </p>
+                      </div>
+                    ))}
+                  </section>
+
+                  {/* Volunteer Work Section */}
+                  <section className="mb-8">
+                    <MainSectionTitle>Volunteer Work</MainSectionTitle>
+                    {cvData.volunteerWork.map((vol, index) => (
+                      <div key={index} className="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                          {vol.organization}
+                        </h3>
+                        <p className="text-gray-600 text-sm sm:text-base mb-2">
+                          {vol.location} | {vol.dates}
+                        </p>
+                        {vol.description && (
+                          <ul className="list-disc list-inside text-gray-700 text-sm sm:text-base space-y-1">
+                            {vol.description.map((desc, i) => (
+                              <li key={i}>{desc}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+                  </section>
+
+                  {/* Certificates Section */}
+                  <section className="mb-8">
+                    <MainSectionTitle>Certificates</MainSectionTitle>
+                    <ul className="list-disc list-inside text-gray-700 text-sm sm:text-base space-y-1">
+                      {cvData.certificates.map((cert, index) => (
+                        <li key={index} className="flex items-center">
+                          <span className="text-blue-500 mr-2">•</span> {cert.name} ({cert.issuer}, {cert.year})
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Achievements Section */}
+                  <section className="mb-8">
+                    <MainSectionTitle>Achievements</MainSectionTitle>
+                    <ul className="list-disc list-inside text-gray-700 text-sm sm:text-base space-y-1">
+                      {cvData.achievements.map((ach, index) => (
+                        <li key={index} className="flex items-center">
+                          <span className="text-blue-500 mr-2">•</span> {ach.name} ({ach.organization}, {ach.year})
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                </main>
+
+                {/* Right Sidebar - Contact, Skills, Languages, References */}
+                <aside className="w-full md:w-1/3 bg-blue-700 text-white p-6 sm:p-8 rounded-b-xl md:rounded-r-xl md:rounded-tl-none flex flex-col justify-between">
+                  <div>
+                    {/* Contact Section */}
+                    <section className="mb-8 mt-12 md:mt-0"> {/* Adjusted margin for mobile/desktop alignment */}
+                      <SidebarSectionTitle>Contact</SidebarSectionTitle>
+                      {/* Changed text-sm to text-xs for smaller font, kept pr-4 */}
+                      <div className="text-xs sm:text-sm space-y-2 pr-4">
+                        <p className="flex items-center">
+                          <span className="mr-2">📧</span> {cvData.contact.email}
+                        </p>
+                        <p className="flex items-center">
+                          <span className="mr-2">📞</span> {cvData.contact.phone}
+                        </p>
+                        <p className="flex items-center">
+                          <span className="mr-2">📍</span> {cvData.contact.location}
+                        </p>
+                      </div>
+                    </section>
+
+                    {/* Skills Section */}
+                    <section className="mb-8">
+                      <SidebarSectionTitle>Skills</SidebarSectionTitle>
+                      <ul className="list-disc list-inside text-xs sm:text-sm space-y-1 pr-4">
+                        {cvData.skills.map((skill, index) => (
+                          <li key={index} className="flex items-center">
+                            <span className="text-blue-300 mr-2">•</span> {skill}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+
+                    {/* Languages Section */}
+                    <section className="mb-8">
+                      <SidebarSectionTitle>Languages</SidebarSectionTitle>
+                      <ul className="list-disc list-inside text-xs sm:text-sm space-y-1 pr-4">
+                        {cvData.languages.map((lang, index) => (
+                          <li key={index} className="flex items-center">
+                            <span className="text-blue-300 mr-2">•</span> {lang.name} ({lang.level})
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+
+                    {/* References Section - Moved to sidebar */}
+                    <section className="mb-8 md:mb-0">
+                      <SidebarSectionTitle>References</SidebarSectionTitle>
+                      <div className="space-y-4 pr-4 text-xs sm:text-sm">
+                        {cvData.references.map((ref, index) => (
+                          <div key={index} className="p-3 bg-blue-600 rounded-lg shadow-sm">
+                            <h3 className="text-base font-semibold text-white">{ref.name}</h3>
+                            <p className="text-blue-200 text-xs">{ref.title}</p>
+                            <p className="text-blue-200 text-xs">{ref.university}</p>
+                            <p className="text-blue-300 text-xs">{ref.email}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          );
+        };
+
+        // Render the React App into the root element
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
